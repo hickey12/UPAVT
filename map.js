@@ -3,25 +3,40 @@
 // in the "map" container of main.html.
 // Written by: Max Ackley
 
-function draw_map() {
-    var latlng = new google.maps.LatLng(45.523488,-122.676222);
+function draw_map(){
+	var rand = Math.floor(Math.random() * 5);
+	
+	if (rand == 0)
+		roosevelt_map();
+	else if (rand == 1)
+		lincoln_map();
+	else if (rand == 2)
+		riverdale_map();
+	else if (rand == 3)
+		franklin_map();
+	else if (rand == 4)
+		jesuit_map();	
+}
+
+function roosevelt_map() {
+    var latlng = new google.maps.LatLng(45.589176, -122.738235)
 
     var options = {
-      zoom: 10,
-      center: latlng,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+        zoom: 10,
+        center: latlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     
-    var map = new google.maps.Map(document.getElementById("map"), options);
-
-    var marker = new google.maps.Marker({
-      position: latlng, 
-      map: map, 
-      title:"Center of Portland, OR"
-       });    
-       
+    var map = new google.maps.Map(document.getElementById("map"), options);  
+	
+	var marker = new google.maps.Marker({
+        position: latlng, 
+        map: map, 
+        title:"Roosevelt High School, Zip Code: 97203"
+    }); 
+     
     zipCodeArea = new google.maps.Polygon({
-        paths: constructZipCodeArray(),
+        paths: constructRooseveltZipCodeArray(),
         strokeColor: "#FF0000",
         strokeOpacity: 0.8,
         strokeWeight: 2,
@@ -29,55 +44,126 @@ function draw_map() {
         fillOpacity: 0.35
     });
     
-    search(map);
-    
     zipCodeArea.setMap(map);
 }
 
-/**
- *This function searches for takeaway meals in the area
- *and displays them as buttons.
- *
- * @author Trever Hickey
- */
-function search(map)
-{
+function lincoln_map() {
+    var latlng = new google.maps.LatLng(45.518872, -122.688986)
+
+    var options = {
+        zoom: 12,
+        center: latlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    
+    var map = new google.maps.Map(document.getElementById("map"), options);   
+     
+    zipCodeArea = new google.maps.Polygon({
+        paths: constructLincolnZipCodeArray(),
+        strokeColor: "#FF0000",
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: "#FF0000",
+        fillOpacity: 0.35
+    });
+    
+    zipCodeArea.setMap(map);
 	
-	//Hardcoded location variable
-	//One of two location definition options.
-	var searchTerms = {
-		location : new google.maps.LatLng(0.456433380000000E+02, -0.122768310000000E+03),
-		radius : '16000',
-		types : "[meal_takeaway]"
-		};
-	
-	//Gets the search service using Places library
-	var service = new google.maps.places.PlacesService(map);
-	service.search(request, callback);
+	var marker = new google.maps.Marker({
+        position: latlng, 
+        map: map, 
+        title:"Lincoln High School, Zip Code: 97205"
+    });
 }
 
-/**
- *	The callback function is necessary to perform an action when a search returns results. 
- *
- * @author Trever Hickey
- */
-function callback(results, status) 
-{
-	//Gets the map
-	//Gets the map element
-	var map = new google.maps.Map(document.getElementById("map"));
+function riverdale_map() {
+    var latlng = new google.maps.LatLng(45.454411,-122.684591)
+
+    var options = {
+        zoom: 10,
+        center: latlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    
+    var map = new google.maps.Map(document.getElementById("map"), options);   
+     
+    zipCodeArea = new google.maps.Polygon({
+        paths: constructRiverdaleZipCodeArray(),
+        strokeColor: "#FF0000",
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: "#FF0000",
+        fillOpacity: 0.35
+    });
+    
+    zipCodeArea.setMap(map);
 	
-	//Check if the search was okay
-	if(status == google.maps.places.PlacesServiceStatus.OK) 
-	{
-		//Iterates through the search.
-		for(var i = 0; i < results.length; i++) 
-		{
-			var marker = new google.maps.marker({
-				position: results[i].location,
-				map: map,
-				title: results[i].name
-				});
-		}
-	}
+	var marker = new google.maps.Marker({
+        position: latlng, 
+        map: map, 
+        title:"Riverdale High School, Zip Code: 97219"
+    });
 }
+
+function franklin_map() {
+    var latlng = new google.maps.LatLng(45.502076,-122.607043)
+
+    var options = {
+        zoom: 10,
+        center: latlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    
+    var map = new google.maps.Map(document.getElementById("map"), options);  
+     
+    zipCodeArea = new google.maps.Polygon({
+        paths: constructFranklinZipCodeArray(),
+        strokeColor: "#FF0000",
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: "#FF0000",
+        fillOpacity: 0.35
+    });
+    
+    zipCodeArea.setMap(map);
+	
+	var marker = new google.maps.Marker({
+        position: latlng, 
+        map: map, 
+        title:"Franklin High School, Zip Code: 97206"
+    }); 
+}
+
+function jesuit_map() {
+    var latlng = new google.maps.LatLng(45.486072,-122.769992)
+
+    var options = {
+        zoom: 10,
+        center: latlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    
+    var map = new google.maps.Map(document.getElementById("map"), options);
+    
+    zipCodeArea = new google.maps.Polygon({
+        paths: constructJesuitZipCodeArray(),
+        strokeColor: "#FF0000",
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: "#FF0000",
+        fillOpacity: 0.35
+    });
+    
+    zipCodeArea.setMap(map);
+	
+	var marker = new google.maps.Marker({
+        position: latlng, 
+        map: map, 
+        title:"Jesuit High School, Zip Code: 97225"
+    });
+}
+
+
+
+
+
