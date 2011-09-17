@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+    <head>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+        <title>Admissions Visualization Tool (Prototype)</title>
+        <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?1.29.6"></script>
+        <script type="text/javascript" src="http://mbostock.github.com/d3/d3.csv.js?1.29.6"></script>
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+        <script type="text/javascript" src="map.js"></script>
+        <script type="text/javascript" src="zip97203.js"></script>
+        
+        <link rel="stylesheet" type="text/css" href="stylesheet.css"></link>
+    </head>
+    
+    
+    <body onload="draw_map()">
+        <h1>Welcome to scenic Portland, OR!</h1>
+        
+        <div id="container">
+            <div id="map"></div>
+            <div class="chart">
+                <span>Average Math SAT Scores for Portland High Schools, 2010</span>
+                <div class="labels"></div>
+                <div class="info"></div>
+                <script type="text/javascript" src="chart.js"></script>
+            </div>
+        </div>        
+    </body>
+</html>
