@@ -1,4 +1,4 @@
-// File: map.js; Authors: Max Ackley, Jace Raile, Trever Hickey; Last modified: 18 Sep 2011 @ 7:12 PM
+// File: map.js; Authors: Max Ackley, Jace Raile, Trever Hickey; Last modified: 18 Sep 2011 @ 7:33 PM
 // Adapted from original code by: Dr. Tanya Crenshaw, University of Portland
 
 //Global variables
@@ -39,13 +39,6 @@ function roosevelt_map() {
 	
 	//preform search
 	search();
-	
-	//create a new marker for the high school
-	var marker = new google.maps.Marker({
-        position: latlng, 
-        map: map, 
-        title:"Roosevelt High School, Zip Code: 97203"
-    }); 
      
     //create a zipcode polygon from zcta data
     zipCodeArea = new google.maps.Polygon({
@@ -59,6 +52,13 @@ function roosevelt_map() {
     
     //set the polygon on the map
     zipCodeArea.setMap(map);
+    
+    //create a new marker for the high school
+	var marker = new google.maps.Marker({
+        position: latlng, 
+        map: map, 
+        title:"Roosevelt High School, Zip Code: 97203"
+    }); 
 }
 
 //FOR FUNCTIONALITY OF ALL <name>_map() FUNCTIONS PAST THIS POINT,
@@ -79,13 +79,7 @@ function lincoln_map() {
      
     search(); 
 	
-	var marker = new google.maps.Marker({
-        position: latlng, 
-        map: map, 
-        title:"Lincoln High School, Zip Code: 97205"
-    });
-    
-    zipCodeArea = new google.maps.Polygon({
+	zipCodeArea = new google.maps.Polygon({
         paths: constructLincolnZipCodeArray(),
         strokeColor: "#FF0000",
         strokeOpacity: 0.8,
@@ -95,6 +89,12 @@ function lincoln_map() {
     });
     
     zipCodeArea.setMap(map);
+    
+    var marker = new google.maps.Marker({
+        position: latlng, 
+        map: map, 
+        title:"Lincoln High School, Zip Code: 97205"
+    });
 }
 
 //riverdale_map function: centers the map at riverdale high school
@@ -112,12 +112,6 @@ function riverdale_map() {
      
     search(); 
 	
-	var marker = new google.maps.Marker({
-        position: latlng, 
-        map: map, 
-        title:"Riverdale High School, Zip Code: 97219"
-    });
-    
     zipCodeArea = new google.maps.Polygon({
         paths: constructRiverdaleZipCodeArray(),
         strokeColor: "#FF0000",
@@ -128,6 +122,12 @@ function riverdale_map() {
     });
     
     zipCodeArea.setMap(map);
+    
+    var marker = new google.maps.Marker({
+        position: latlng, 
+        map: map, 
+        title:"Riverdale High School, Zip Code: 97219"
+    });
 }
 
 //franklin_map function: centers the map at franklin high school
@@ -144,12 +144,6 @@ function franklin_map() {
     map = new google.maps.Map(document.getElementById("map"), options);  
      
     search();
-	
-	var marker = new google.maps.Marker({
-        position: latlng, 
-        map: map, 
-        title:"Franklin High School, Zip Code: 97206"
-    }); 
     
     zipCodeArea = new google.maps.Polygon({
         paths: constructFranklinZipCodeArray(),
@@ -161,6 +155,12 @@ function franklin_map() {
     });
     
     zipCodeArea.setMap(map);
+    
+    var marker = new google.maps.Marker({
+        position: latlng, 
+        map: map, 
+        title:"Franklin High School, Zip Code: 97206"
+    }); 
 }
 
 //jesuit_map function: centers the map at jesuit high school
@@ -178,12 +178,6 @@ function jesuit_map() {
     
     search();
     
-    var marker = new google.maps.Marker({
-        position: latlng, 
-        map: map, 
-        title:"Jesuit High School, Zip Code: 97225"
-    });
-    
     zipCodeArea = new google.maps.Polygon({
         paths: constructJesuitZipCodeArray(),
         strokeColor: "#FF0000",
@@ -194,6 +188,13 @@ function jesuit_map() {
     });
     
     zipCodeArea.setMap(map);
+    
+    var marker = new google.maps.Marker({
+        position: latlng, 
+        map: map, 
+        title:"Jesuit High School, Zip Code: 97225"
+    });
+    
 }
 
 //search function: searches for lodging in a 5000 meter radius from
