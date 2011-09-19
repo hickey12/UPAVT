@@ -1,3 +1,6 @@
+//File: chart.js; Authors: Max Ackley; Last modified: 18 Sep 2011 @ 7:25 PM
+//Adapted from original code by: Dr. Tanya Crenshaw, University of Portland
+
 var bar = d3.select("body")
             .select(".chart")
             .select(".info")

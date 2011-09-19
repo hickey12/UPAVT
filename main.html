@@ -1,3 +1,5 @@
+<!--File: main.html; Authors: Max Ackley, Trever Hickey, Jace Raile; Last modified: 18 Sep 2011 @ 7:04 PM -->
+<!--Adapted from original code by: Dr. Tanya Crenshaw, University of Portland--> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
 "http://www.w3.org/TR/html4/strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
@@ -13,12 +15,13 @@
         <link rel="stylesheet" type="text/css" href="stylesheet.css"></link>
     </head>
     
-    
+    <!--When the page loads, call draw_map() to display the Google Map-->
     <body onload="draw_map()">
         <h1>Welcome to scenic Portland, OR!</h1>
         
         <p id="DEBUG AREA"></p>
         
+        <!--Use css to format the page (see stylesheet.css)-->
         <div id="container">
             <div id="map"></div>
             <div class="chart">

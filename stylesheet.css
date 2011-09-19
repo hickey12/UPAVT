@@ -1,7 +1,13 @@
+/*File: stylesheet.css; Authors: Max Ackley, Jace Raile; Last modified: 18 Sep 2011 @ 7:08 PM-->
+ * Adapted from original code by: Dr. Tanya Crenshaw, University of Portland
+ */
+
+/*Initialize some parameters*/
 html { height: 100% }
 body { height: 100%; margin: 0; padding: 0; clear: both; }
 h1 { text-align: center;}
 
+/*Create the ID's*/
 #container{ height: 100%; width: 1000px; margin: 0 auto}
 
 #map {
@@ -10,6 +16,7 @@ h1 { text-align: center;}
     height: 50%;
 }
 
+/*Create the classes*/
 .chart {
     float: right;  
     width: 420px;
