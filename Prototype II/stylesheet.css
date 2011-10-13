@@ -1,0 +1,33 @@
+html { height: 100% }
+body { height: 100%; margin: 0; padding: 0; clear: both; }
+h1 { text-align: center;}
+
+#container{ 
+	height: 550px; 
+	width: 1000px; 
+	margin: 0 auto;
+	padding-left: 0px; }
+
+#info { 
+	float: left;
+	width: 50%;
+	height: 100%;
+	margin-right: 5%;	
+}
+
+#options { 
+	float: left;
+	width: 45%;
+	height: 100%;
+	background-color: red;
+}
+
+#map {
+    height: 325px;
+}
+
+#chart { 
+	margin-top: 25px;	
+	height: 200px;
+	background-color: red;
+}
