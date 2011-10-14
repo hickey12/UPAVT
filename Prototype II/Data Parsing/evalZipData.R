@@ -11,6 +11,7 @@ evalStateData <- function(state) {
 	appliedCount <- NULL;
 	inquiryCount <- NULL;
 	stateSummary <- NULL;
+	enrolledCount <- NULL;
 
 	#Creat directory for output
 	path <- "schoolData/";
@@ -31,6 +32,7 @@ evalStateData <- function(state) {
 		acceptedCount <- NULL;
 		appliedCount <- NULL;
 		inquiryCount <- NULL;
+		enrolledCount <- NULL;
 
 		#Load the csv file
 		schoolTable <- read.csv(i, header=TRUE, stringsAsFactors=FALSE);
@@ -41,24 +43,32 @@ evalStateData <- function(state) {
 		#Get the zips from the desired state
 		zips <- unique(schoolTable$Zip[schoolTable$State == state]);
 
+		#sorts the zips before processing.
+		zips <- sort(zips);
+
 		for(zip in zips)
 		{
 			inquiryCounter <- schoolTable$Zip[schoolTable$Zip == zip];
 			#Counts how many people are interested from a zip code
 			inquiryCount <- c(inquiryCount, length(inquiryCounter));
 			
-			#Counts how many people applied from a state
+			
 			appliedCounter <- schoolTable$Applied[schoolTable$Applied == "Y" & schoolTable$Zip == zip];
+			#Counts how many people applied from a zipcode
 			appliedCount <- c(appliedCount, length(appliedCounter));
 
 			acceptedCounter <- schoolTable$Accepted[schoolTable$Accepted == "A" & schoolTable$Zip == zip];
-			#Counts how many were accepted
+			#Counts how many were accepted from a zipcode
 			acceptedCount <- c(acceptedCount, length(acceptedCounter));
+
+			enrolledCounter <- schoolTable$Enrolled[schoolTable$Enrolled == "Y" & schoolTable$Zip == zip];
+			#Counts how many students enrolled from a zipcode
+			enrolledCount <- c(enrolledCount, length(enrolledCounter));
 
 		}
 
 		# Once a zips are complete, create a data frame to store these entries in a table
-		stateSummary <- (data.frame(Zipcodes = zips, Inquiries=inquiryCount, Applied=appliedCount, Accepted=acceptedCount));	
+		stateSummary <- (data.frame(Zipcodes = zips, Inquiries=inquiryCount, Applied=appliedCount, Accepted=acceptedCount, Enrolled=enrolledCount));	
 
 		filename <- paste(path, paste("/summary", state, year, sep="_"), ".csv", sep="");;
 		write.csv(stateSummary, filename);

@@ -20,6 +20,7 @@ h1 { text-align: center;}
 	width: 45%;
 	height: 100%;
 	background-color: red;
+	vertical-align: middle;
 }
 
 #map {
@@ -31,3 +32,16 @@ h1 { text-align: center;}
 	height: 200px;
 	background-color: red;
 }
+
+form {
+	margin-top: 20px;
+		
+}
+
+input {
+	float: right;
+	margin-right: 350px;
+	
+	
+}
+

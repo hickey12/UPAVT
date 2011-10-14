@@ -20,6 +20,49 @@
 	    		<div id="map"></div>
 	    		<div id="chart">Chart</div>
 	    	</div>
-	    	<div id="options">Options</div>
+	    	<div id="options"> Choose 1 from each menu below:
+	    		
+	    		<form>
+	    			<legend>Student Groups</legend>
+	    			
+	    			<input type="radio" name="groups" value="Inquiries"/> Inquiries <br />
+	    			<input type="radio" name="groups" value="Applied"/> Applied <br />
+	    			<input type="radio" name="groups" value="Accepted"/> Accepted <br />
+	    			<input type="radio" name="groups" value="Enrolled"/> Enrolled <br />
+	    		</form>
+	    		
+	    		<form>
+	    			<legend>Metrics</legend>
+	    			
+	    			<input type="radio" name="metrics" value="GPA" disabled=true/> GPA 
+	    			
+	    				<select name="gpaSelector">
+	    					<option value="4.0 - 3.0">0.0 - 0.5</option>
+	    					<option value="0.5 - 1.0">0.0 - 1.0</option>
+	    					<option value="1.0 - 1.5">1.0 - 1.5</option>
+	    					<option value="1.5 - 2.0">1.5 - 2.0</option>
+	    					<option value="2.0 - 2.5">2.0 - 2.5</option>
+	    					
+	    				</select>
+	    			
+	    			<br />
+	    			<input type="radio" name="metrics" value="SAT Math" disabled=true> SAT Math 
+	    			<br />
+	    			<input type="radio" name="metrics" value="SAT Verbal" disabled=true/> SAT Verbal <br />
+	    			<input type="radio" name="metrics" value="Male/ Female" disabled=true/> Male/Female <br />
+	    			<input type="radio" name="metrics" value="Visited" disabled=true/> Visited <br />
+	    		</form>
+	    		
+	    		<form>
+	    			<legend>Years</legend>
+	    			
+	    			<input type="radio" name="years" value="2007"/> 2007 <br />
+	    			<input type="radio" name="years" value="2008"/> 2008 <br />
+	    			<input type="radio" name="years" value="2009"/> 2009 <br />
+	    			<input type="radio" name="years" value="2010"/> 2010 <br />
+	    		</form>
+	    		
+	    		
+	    		</div>
 	    </div>        
 	</body>
