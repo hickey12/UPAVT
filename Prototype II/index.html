@@ -34,23 +34,67 @@
 	    		<form>
 	    			<legend>Metrics</legend>
 	    			
-	    			<input type="radio" name="metrics" value="GPA" disabled=true/> GPA 
-	    			
-	    				<select name="gpaSelector">
-	    					<option value="4.0 - 3.0">0.0 - 0.5</option>
-	    					<option value="0.5 - 1.0">0.0 - 1.0</option>
-	    					<option value="1.0 - 1.5">1.0 - 1.5</option>
-	    					<option value="1.5 - 2.0">1.5 - 2.0</option>
-	    					<option value="2.0 - 2.5">2.0 - 2.5</option>
-	    					
-	    				</select>
-	    			
-	    			<br />
-	    			<input type="radio" name="metrics" value="SAT Math" disabled=true> SAT Math 
-	    			<br />
-	    			<input type="radio" name="metrics" value="SAT Verbal" disabled=true/> SAT Verbal <br />
-	    			<input type="radio" name="metrics" value="Male/ Female" disabled=true/> Male/Female <br />
-	    			<input type="radio" name="metrics" value="Visited" disabled=true/> Visited <br />
+	    			<div class = "metricContainer">
+	    				
+		    			<div class = "radioButtons">
+		    				<input type="radio" name="metrics" value="None" disabled=false checked=true/> <br />
+		    				<input type="radio" name="metrics" value="GPA" disabled=true/> <br />
+		    				<input type="radio" name="metrics" value="SAT Math" disabled=true> <br />
+		    				<input type="radio" name="metrics" value="SAT Verbal" disabled=true/> <br />
+		    				<input type="radio" name="metrics" value="Male/ Female" disabled=true/> <br />
+		    				<input type="radio" name="metrics" value="Visited" disabled=true/>
+		    			</div>
+		    			
+		    			<div class = "label">
+		    				None <br />
+		    				GPA <br />
+		    				SAT Math <br />
+		    				SAT Verbal <br />
+		    				Male/Female <br />
+		    				Visited
+		    			</div>
+		    			
+		    			<br />
+		    			<div class = "dropDownMenu">
+		    			<select name="gpaSelector">
+		    				<option value="4.0 - 3.0">4.0 - 3.0</option>
+		    				<option value="3.0 - 2.0">3.0 - 2.0</option>
+		    				<option value="2.0 - 1.0">2.0 - 1.0</option>
+		    				<option value="1.0 - 0.0">1.0 - 0.0</option>				
+		    			</select>
+		    			
+		    			<br />
+		    			<select name="satMathSelector">
+		   					<option value="800-700">800 - 700</option>
+		   					<option value="700-600">700 - 600</option>
+		   					<option value="600-500">600 - 500</option>
+		    				<option value="500-400">500 - 400</option>
+							<option value="400-300">400 - 300</option>
+							<option value="300-200">300 - 200</option>
+							<option value="200-100">200 - 100</option>
+							<option value="100-000">100 - 000</option>
+		    			</select>
+		    			
+		    			<br />
+		    			<select name="satVerbalSelector">
+		   					<option value="800-700">800 - 700</option>
+		   					<option value="700-600">700 - 600</option>
+		   					<option value="600-500">600 - 500</option>
+		    				<option value="500-400">500 - 400</option>
+							<option value="400-300">400 - 300</option>
+							<option value="300-200">300 - 200</option>
+							<option value="200-100">200 - 100</option>
+							<option value="100-000">100 - 000</option>
+		    			</select>
+		    			
+		    			<br />
+		    			<select name="genderSelector">
+		    				<option value="male">Male</option>
+		    				<option value="female"> Female</option>
+		    			</select>
+		    			</div>
+	    			</div>
+
 	    		</form>
 	    		
 	    		<form>
@@ -60,6 +104,7 @@
 	    			<input type="radio" name="years" value="2008"/> 2008 <br />
 	    			<input type="radio" name="years" value="2009"/> 2009 <br />
 	    			<input type="radio" name="years" value="2010"/> 2010 <br />
+	    			
 	    		</form>
 	    		
 	    		

@@ -38,10 +38,15 @@ form {
 		
 }
 
-input {
-	float: right;
-	margin-right: 350px;
-	
-	
+.radioButtons {
+	vertical-align: bottom;
 }
 
+.label {
+	vertical-align: bottom;
+}
+
+.dropDownMenu {
+	vertical-align: bottom;
+}
+}
