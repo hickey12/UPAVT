@@ -12,6 +12,7 @@ evalStateData <- function() {
 	acceptedCount <- NULL;
 	appliedCount <- NULL;
 	interestCount <- NULL;
+	enrolledCount <- NULL
 	stateSummary <- NULL;
 
 	path <- NULL;
@@ -61,8 +62,6 @@ evalStateData <- function() {
 			#Counts how many people are interested from a state
 			interestCount <- c(interestCount, length(interestCounter));
 			
-			# TLC: Make sure to refer to the column name correctly.  It's "State" not "state"
-			# Also had to change the second condition to check the "Applied" col, not "State" col.
 			appliedCounter <- schoolTable$Applied[schoolTable$State == state & schoolTable$Applied == "Y"];
 			#Counts how many people applied from a state
 			appliedCount <- c(appliedCount, length(appliedCounter));
@@ -70,10 +69,16 @@ evalStateData <- function() {
 			acceptedCounter <- schoolTable$Accepted[schoolTable$State == state &schoolTable$Accepted == "A"];
 			#Counts how many were accepted
 			acceptedCount <- c(acceptedCount, length(acceptedCounter));
+
+			enrolledCounter <- schoolTable$Enrolled[schoolTable$State == state & schoolTable$Enrolled == "Y"];
+			#Counts how many students enrolled from a state
+			enrolledCount <- c(enrolledCount, length(enrolledCounter));
+
+
 		}
 
 		# Once a state is complete, create a data frame to store these entries in a table
-		stateSummary <-(data.frame(State = states, Interested=interestCount, Applied=appliedCount, Accepted=acceptedCount));
+		stateSummary <-(data.frame(State = states, Interested=interestCount, Applied=appliedCount, Accepted=acceptedCount, Enrolled=enrolledCount));
 		
 		#Store into state level directory
 		path <- "schoolData/";
