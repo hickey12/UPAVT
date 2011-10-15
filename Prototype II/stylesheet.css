@@ -33,20 +33,18 @@ h1 { text-align: center;}
 	background-color: red;
 }
 
-form {
-	margin-top: 20px;
-		
+.sorterContainer {
+	margin-top: 30px;
 }
 
 .radioButtons {
-	vertical-align: bottom;
+	float: left;
 }
 
 .label {
-	vertical-align: bottom;
+	float: left;
 }
 
 .dropDownMenu {
-	vertical-align: bottom;
-}
+	float: left;
 }
