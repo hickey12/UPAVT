@@ -33,8 +33,9 @@ h1 { text-align: center;}
 	background-color: red;
 }
 
-#select {
-	
+select {
+	width: 80px;
+	height: inherit;
 }
 
 .sorterContainer {
