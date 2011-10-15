@@ -11,7 +11,10 @@
  */
 html { height: 100% }
 body { height: 100%; margin: 0; padding: 0; clear: both; }
-h1 { text-align: center;}
+h1 { 
+	text-align: center;
+	color: #5f00aa;
+}
 
 /*
  * This container contains the entire html file.
@@ -39,7 +42,8 @@ h1 { text-align: center;}
 	float: left;
 	width: 45%;
 	height: 100%;
-	background-color: red;
+	background-color: #5f00aa;
+	color: white;
 	vertical-align: middle;
 }
 
@@ -57,7 +61,8 @@ h1 { text-align: center;}
 #chart { 
 	margin-top: 25px;	
 	height: 200px;
-	background-color: red;
+	background-color: #5f00aa;
+	color: white;
 }
 
 /* 
