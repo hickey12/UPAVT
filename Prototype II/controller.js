@@ -4,6 +4,16 @@
 
 //USAGE: contains functions that index.html and map.js will use to display the proper information
 
+/*
+ * Globals!
+ */
+	var selectedGroup;
+	var selectedMetric;
+	var selectedYear;
+	
+	var selectedGPA;
+	var satMathBin;
+	var satVerbalBin;
 
 /*
  * getValues(<form> formname)
@@ -46,9 +56,14 @@ function getValues(form)
         }
     }
     
+    //update globals
+    selectedGroup = groupOption;
+    selectedMetric = metricOption;
+    selectedYear = yearOption;
+    
     //for now, write these values to the page.
-    document.getElementById("groupOption").innerHTML = groupOption;
-    document.getElementById("metricOption").innerHTML = metricOption;
-    document.getElementById("yearOption").innerHTML = yearOption;
+    document.getElementById("groupOption").innerHTML = selectedGroup;
+    document.getElementById("metricOption").innerHTML = selectedMetric;
+    document.getElementById("yearOption").innerHTML = selectedYear;
     
 }//end getValues
