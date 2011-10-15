@@ -15,6 +15,7 @@
         <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
 		<script type="text/javascript" src="map.js"></script>
+		<script type="text/javascript" src="controller.js"></script>
         <link rel="stylesheet" type="text/css" href="stylesheet.css">
     </head>
     
@@ -22,7 +23,7 @@
 	<body onload="initialize()">
 		<h1>Admissions Visualization Tool (Prototype II)</h1>
   
-  		<form name="thisForm">
+  		<form name="thisForm"><!--Creates from to wrap around radio buttons so we can access them later -->
 	    <div id="container">
 	    	
 	    	<!-- Container to display maps and graph. -->
@@ -147,40 +148,11 @@
 	    		
 	    	</div><!--End "Options" div-->
 	    </div><!--End "Container" div-->
-	   	</form>
+	   </form><!--End "thisForm" -->
 	   	
 	    <div id="groupOption"> </div>
 	    <div id="metricOption"> </div>
 	    <div id="yearOption"> </div>
 	</body>
-	
-	<script type="text/javascript">
-	function getValues(form) 
-	{
-		var groupOption = "Group: "
-	    var metricOption = "Metric: ";
-	    var yearOption = "Year: ";
-	    for (var i = 0; i < form.elements.length; i++ ) {
-	        if (form.elements[i].name == "groups") {
-	            if (form.elements[i].checked == true) {
-	                groupOption += form.elements[i].value + ' ';
-	            }
-	        }
-	        if (form.elements[i].name == "metrics") {
-	            if (form.elements[i].checked == true) {
-	                metricOption += form.elements[i].value + ' ';
-	            }
-	        }
-	        if (form.elements[i].name == "years") {
-	            if (form.elements[i].checked == true) {
-	                yearOption += form.elements[i].value + ' ';
-	            }
-	        }
-	    }
-	    document.getElementById("groupOption").innerHTML = groupOption;
-	    document.getElementById("metricOption").innerHTML = metricOption;
-	    document.getElementById("yearOption").innerHTML = yearOption;
-	}
-		
-	</script>
+
 </html>
