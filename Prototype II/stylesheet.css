@@ -1,13 +1,30 @@
+/*
+ * Project: UPAVT
+ * Author: Trever Hickey & Max Ackley
+ * Date Modified: October 15, 2011 
+ *
+ * Description: CSS file for UPAVT website. 
+ */
+
+/*
+ * Settings for overacrching html elements.
+ */
 html { height: 100% }
 body { height: 100%; margin: 0; padding: 0; clear: both; }
 h1 { text-align: center;}
 
-#container{ 
+/*
+ * This container contains the entire html file.
+ */
+#container{
 	height: 550px; 
 	width: 1000px; 
 	margin: 0 auto;
 	padding-left: 0px; }
 
+/*
+ * This container contains the map and graph.
+ */
 #info { 
 	float: left;
 	width: 50%;
@@ -15,6 +32,9 @@ h1 { text-align: center;}
 	margin-right: 5%;	
 }
 
+/*
+ * This container contains all of the 
+ */
 #options { 
 	float: left;
 	width: 45%;
@@ -23,34 +43,62 @@ h1 { text-align: center;}
 	vertical-align: middle;
 }
 
+/*
+ * This container will contain the google map element
+ */
 #map {
     height: 325px;
 }
 
+/*
+ * This container will contain the chart that will 
+ * display when options are selected.
+ */
 #chart { 
 	margin-top: 25px;	
 	height: 200px;
 	background-color: red;
 }
 
+/* 
+ * Sets all drop down menus to the same size.
+ * */
 select {
 	width: 80px;
 	height: inherit;
 }
 
+/* Sets all elements in the sorterContainer class 
+ * [the options to control the search of the webpage] 
+ * to align to left and have a vertical margin between them.
+ */
 .sorterContainer {
        margin-top: 20px;
        clear:left;       
 }
 
+/*
+ * This section controls the Metrics options specially
+ * because it is formatted with internal containers.
+ */
+
+/*
+ * Sets the radio buttons container to align left.
+ */
 .radioButtons {
 	float: left;
 }
 
+/*
+ * This sets the text label container to align left.
+ */
 .label {
 	float: left;
 }
 
+/*
+ * Sets the drop down container to align left
+ */
 .dropDownMenu {
 	float: left;
 }
