@@ -82,8 +82,8 @@ function visualizeData(map, settings) {
 				var shadeScale = (relevantData[j] - min) / (max - min);
 
 				//Creates polygons from the boundaries and draws them on the map
-  				drawBoundaries(map, boundaries, 
-  						relevantZips[j], relevantData[j], shadeScale);
+  				drawBoundaries(map, settings, boundaries, 
+  					relevantZips[j], relevantData[j], shadeScale);
             });	
         }	
     });
@@ -179,7 +179,7 @@ function parseZipBoundaries(rows, boundariesArray) {
 // Description: Creates polygon objects for all the boundaries for a given zip
 // and draws them on the given map. Also adds an event listener to alert the
 // zip number and data when the polygon is clicked.
-function drawBoundaries(map, boundariesArray, zip, value, shadeScale) {
+function drawBoundaries(map, settings, boundariesArray, zip, value, shadeScale) {
 	var i;
 	for (i = 0; i < boundariesArray.length; i++)
 	{
