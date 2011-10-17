@@ -24,7 +24,7 @@
  * 
  * @param form - the name of the form one wishes to search for elements
  */
-function getValues(form) 
+function getFormValues(form) 
 {
 	//initialize vars
 	var groupOption = ""
