@@ -12,7 +12,7 @@
 // Description: Initializes the map settings, draws the map, and sets data
 // visualization into motion. Called when the page is loaded or after a 
 // form is submitted.
-function initialize(){
+function draw_map(){
 	
 	//Hard-coded coordinate center of Oregon
     var latlng = new google.maps.LatLng(44.000718, -120.429382);//getMapCenter();
@@ -66,24 +66,27 @@ function visualizeData(map, settings) {
 
 		    //Access all the pairs of Latitude-Longitude from the data file
 		    d3.csv(path2, function(rows) {
-	    
-				//Each boundary characterizes a polygon 
-				//(zip codes may have multiple boundaries)
-		   		var boundaries = new Array();
-				
-				//Parse zip boundaries from coordinates and populate array
-				parseZipBoundaries(rows, boundaries);
-				
-				//Grab max and min of data to calculate shading scale
-       			var min = d3.min(relevantData);
-        		var max = d3.max(relevantData);
-		
-				//Yields a ratio between 0.0 and 1.0
-				var shadeScale = (relevantData[j] - min) / (max - min);
-
-				//Creates polygons from the boundaries and draws them on the map
-  				drawBoundaries(map, settings, boundaries, 
-  					relevantZips[j], relevantData[j], shadeScale);
+		    	//Check that the data for the zip code exists before drawing it
+	    		if (rows != null)
+	    		{
+					//Each boundary characterizes a polygon 
+					//(zip codes may have multiple boundaries)
+			   		var boundaries = new Array();
+					
+					//Parse zip boundaries from coordinates and populate array
+					parseZipBoundaries(rows, boundaries);
+					
+					//Grab max and min of data to calculate shading scale
+	       			var min = d3.min(relevantData);
+	        		var max = d3.max(relevantData);
+			
+					//Yields a ratio between 0.0 and 1.0
+					var shadeScale = (relevantData[j] - min) / (max - min);
+	
+					//Creates polygons from boundaries and draws them on the map
+	  				drawBoundaries(map, settings, boundaries, 
+	  					relevantZips[j], relevantData[j], shadeScale);
+	  			}
             });	
         }	
     });

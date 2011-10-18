@@ -25,7 +25,7 @@ USAGE: main html page for UPAVT tool; must be opened in Mozilla Firefox
         <link rel="stylesheet" type="text/css" href="stylesheet.css">
     </head>
     <!--Javascript to initialize the map and graph -->
-    <body onload="initialize()">
+    <body onload="draw_map()">
         <h1>Admissions Visualization Tool (Prototype II)</h1>
         <form name="thisForm">
             <!--Creates from to wrap around radio buttons so we can access them later -->
@@ -157,7 +157,7 @@ USAGE: main html page for UPAVT tool; must be opened in Mozilla Firefox
 						<br/>
                         <input type="radio" name="years" value="2010"/>2010 
                         <br/>
-                        <input type="button" name="Submit" value="Click to submit changes" onclick="initialize()">
+                        <input type="button" name="Submit" value="Click to submit changes" onclick="draw_map()">
                     </div>
                 </div><!--End "Options" div-->
             </div><!--End "Container" div-->
