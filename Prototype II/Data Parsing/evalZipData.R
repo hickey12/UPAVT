@@ -4,7 +4,7 @@
 
 #This function goes through all of the CSV files, assumed to be those used
 #by admissions and parses the data into a summary of admission data by state.
-evalStateData <- function(state) {	
+evalZipData <- function(state) {	
 	
 	#Initializes variables to null
 	acceptedCount <- NULL;
