@@ -78,8 +78,9 @@ select {
  * to align to left and have a vertical margin between them.
  */
 .sorterContainer {
-       margin-top: 20px;
-       clear:left;       
+	margin-left: 30px;
+    margin-top: 20px;
+    clear:left;       
 }
 
 /*
