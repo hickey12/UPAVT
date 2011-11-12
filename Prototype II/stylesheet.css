@@ -108,3 +108,7 @@ select {
 .dropDownMenu {
 	float: left;
 }
+
+.locationDropMenu {
+	text-align: center;
+}
