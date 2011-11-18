@@ -7,13 +7,15 @@
 /*
  * Globals!
  */
+	var selectedLocation;
 	var selectedGroup;
 	var selectedMetric;
 	var selectedYear;
-	
 	var selectedGPA;
-	var satMathBin;
-	var satVerbalBin;
+	var selectedMath;
+	var selectedVerbal;
+	var selectedGender;
+	var importantMetric;
 
 /*
  * getValues(<form> formname)
@@ -27,12 +29,22 @@
 function getFormValues(form) 
 {
 	//initialize vars
-	var groupOption = ""
+	var locationOption = "";
+	var groupOption = "";
     var metricOption = "";
     var yearOption = "";
+    var gpaOption = "";
+    var mathOption = "";
+    var verbalOption = "";
+    var genderOption = "";
     
     //for each element in the form...
     for (var i = 0; i < form.elements.length; i++ ) {
+    	
+    	//get which location the user has selected
+    	if (form.elements[i].name == "Location") {
+        	locationOption += form.elements[i].value;
+        }
     	
     	//get which "group" button is checked
         if (form.elements[i].name == "groups") {
@@ -48,6 +60,23 @@ function getFormValues(form)
             }
         }
         
+        //get the metric drop-down-menu values
+        if (form.elements[i].name == "gpaSelector") {
+        	gpaOption += form.elements[i].value;
+        }
+        
+        if (form.elements[i].name == "satMathSelector") {
+        	mathOption += form.elements[i].value;
+        }
+        
+        if (form.elements[i].name == "satVerbalSelector") {
+        	verbalOption += form.elements[i].value;
+        }
+        
+        if (form.elements[i].name == "genderSelector") {
+        	genderOption += form.elements[i].value;
+        }
+                
         //and which "year" button is checked
         if (form.elements[i].name == "years") {
             if (form.elements[i].checked == true) {
@@ -57,14 +86,50 @@ function getFormValues(form)
     }
     
     //update globals
+    selectedLocation = locationOption;
     selectedGroup = groupOption;
     selectedMetric = metricOption;
     selectedYear = yearOption;
+    selectedGPA = gpaOption;
+	selectedMath = mathOption;
+	selectedVerbal = verbalOption;
+	selectedGender = genderOption;
+	
+	//we only care about the drop-down associated with the selected metric
+	switch(selectedMetric)
+	{
+		case "None":
+			importantMetric = "None";
+			break;
+		case "GPA":
+			importantMetric = selectedGPA;
+			break;
+		case "SAT Math":
+			importantMetric = selectedMath;
+			break;
+		case "SAT Verbal":
+			importantMetric = selectedVerbal;
+			break;
+		case "Male/ Female":
+			importantMetric = selectedGender;
+			break;
+		case "Visited":
+			importantMetric = "Visited";
+			break;
+		default:
+			importantMetric = "ERROR";
+	}
     
+    //create associative array
 	var optionSettings = {};
+	optionSettings['location'] = selectedLocation;
 	optionSettings['group'] = selectedGroup;
 	optionSettings['metric'] = selectedMetric;
 	optionSettings['year'] = selectedYear;
+	optionSettings['dropVal'] = importantMetric;
+	
+	//for TESTING - see if values are grabbed correctly
+	document.getElementById("testWrite").innerHTML = "Location: " + selectedLocation + ". Metric: " + selectedMetric + ". Val: " + importantMetric
 	
 	return optionSettings;    
 }//end getValues
