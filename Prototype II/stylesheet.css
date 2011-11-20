@@ -10,7 +10,14 @@
  * Settings for overacrching html elements.
  */
 html { height: 100% }
-body { height: 100%; margin: 0; padding: 0; clear: both; }
+body { 
+	height: 100%; 
+	margin: 0; 
+	padding: 0; 
+	clear: both;
+	font-family: "Century Gothic";
+	font-size: 10.5pt;
+}
 h1 { 
 	text-align: center;
 	color: #5f00aa;
@@ -23,7 +30,8 @@ h1 {
 	height: 550px; 
 	width: 1000px; 
 	margin: 0 auto;
-	padding-left: 0px; }
+	padding-left: 0px; 
+}
 
 /*
  * This container contains the map and graph.
@@ -43,7 +51,8 @@ h1 {
 	width: 45%;
 	height: 100%;
 	background-color: #5f00aa;
-	color: white;
+	margin-bottom: 5px;
+	color: #E5E5E5;
 	vertical-align: middle;
 }
 
@@ -58,18 +67,23 @@ h1 {
  * This container will contain the chart that will 
  * display when options are selected.
  */
-#chart { 
-	margin-top: 25px;	
+.chart { 
+	text-align: center;
+	margin-top: 25px;
+	padding-top: 2px;
+	padding-left: 5px;	
+	padding-right: 5px;
 	height: 200px;
+	width: 500px;
 	background-color: #5f00aa;
-	color: white;
+	color: #E5E5E5;
 }
 
 /* 
  * Sets all drop down menus to the same size.
  * */
 select {
-	width: 80px;
+	width: 120px;
 	height: inherit;
 }
 
@@ -78,7 +92,7 @@ select {
  * to align to left and have a vertical margin between them.
  */
 .sorterContainer {
-	margin-left: 30px;
+	margin-left: 25px;
     margin-top: 20px;
     clear:left;       
 }
@@ -96,6 +110,21 @@ select {
 }
 
 /*
+ * Centers, positions submit button within options container.
+ */
+#submitButton {
+	margin-top: 30px;
+	text-align: center;
+}
+
+/*
+ * Sets the "Help" and "About us" buttons to align right.
+ */
+#theEnd {
+	text-align: right;
+}
+
+/*
  * This sets the text label container to align left.
  */
 .label {
@@ -109,6 +138,48 @@ select {
 	float: left;
 }
 
+/*
+ * Sets the position and size for the UP logo.
+ */
+#logo {
+	position: absolute;
+	top: 5px;
+	left: 360px;
+}
+
+/*
+ * Aligns location drop down menu to center of the options container.
+ */
 .locationDropMenu {
 	text-align: center;
 }
+
+/*
+ * Sets the bar labels of the chart to float left so they align.
+ */
+.barLabel div {
+	float: left;
+}
+
+/*
+ * Specifies the look of the bars in the bar chart.
+ */
+.bar div {
+    background-color: #E5E5E5;
+    margin-right: 1px;
+    margin-left: 1px;
+    padding-top: 2px;
+    font-size: 12pt;
+	font-weight: bold;
+    float: left;
+	color: #5f00aa;
+}
+
+/*
+ * Bolds and adds a margin to the title of the bar chart.
+ */
+.chart span {
+	font-weight: bold;
+	padding-top: 5px;
+}
+

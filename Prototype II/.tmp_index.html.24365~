@@ -1,0 +1,180 @@
+<!-- 	FILE: index.html
+AUTHOR: Trever Hickey, Max Ackley, Chelsea Colvin and Jace Raile
+MODIFIED: 15 October 2011
+USAGE: main html page for UPAVT tool; must be opened in Mozilla Firefox
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<title>UPAVT</title>
+		<script type="application/javascript;version=1.7" src="map.js"></script>
+		<script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?1.29.6"></script>
+		<script type="text/javascript" src="http://mbostock.github.com/d3/d3.csv.js?1.29.6"></script>
+		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+		<script type="text/javascript" src="formReader.js"></script>
+		<script type="text/javascript" src="chart.js"></script>
+		<script type="text/javascript" src="init.js"></script>
+		<link rel="stylesheet" type="text/css" href="stylesheet.css">
+	</head>
+	<!--Javascript to initialize the map and graph -->
+	<body onload="initialize()">
+		<h1>Admissions Visualization Tool</h1>
+		<form name="thisForm">
+			<!--Creates from to wrap around radio buttons so we can access them later -->
+			<div id="container">
+				<!-- Container to display maps and graph. -->
+				<div id="info">
+					<div id="map"></div>
+					<div class="chart">
+						<span>Most Populated Zip Codes in Region</span>
+						<div id="bars"></div>
+						<div id="labels"></div>
+					</div>
+				</div>
+				<!-- Container to hold the controls for UPAVT. -->
+				<div id="options">
+					<div class="sorterContainer">
+						<!-- Instructions for UPAVT. -->
+						<b>Select one option from each menu below and click submit:</b>
+						<br/>
+					</div>
+					<!-- DropDownMenu for selecting a location / view -->
+					<div class = "locationDropMenu">
+						<select name="Location">
+							<option value="US">United States</option>
+							<option value="NAN">---------------</option>
+							<option value="OR">Oregon</option>
+							<option value="Washington">Washington</option>
+						</select>
+						<br/>
+						<br/>
+					</div>
+					<!-- Container to hold the type of student analysis for UPAVT. -->
+					<div class="sorterContainer">
+						<legend>
+							<b>Student Groups</b>
+						</legend>
+						<input type="radio" name="groups" value="Inquiries" checked=true/>
+						Inquiries
+						<br/>
+						<input type="radio" name="groups" value="Applied"/>
+						Applied
+						<br/>
+						<input type="radio" name="groups" value="Accepted"/>
+						Accepted
+						<br/>
+						<input type="radio" name="groups" value="Enrolled"/>
+						Enrolled
+						<br/>
+					</div>
+					<!-- Container to hold the Metrics for subsearches.-->
+					<div class="sorterContainer">
+						<legend>
+							<b>Metrics</b>
+						</legend>
+						<div class = "metricContainer">
+							<!-- Subcontainer to hold just the radio buttons of Metrics. -->
+							<div class = "radioButtons">
+								<input type="radio" name="metrics" value="None" checked=true/>
+								<br/>
+								<input type="radio" name="metrics" value="GPA" />
+								<br/>
+								<input type="radio" name="metrics" value="SAT Math" />
+								<br/>
+								<input type="radio" name="metrics" value="SAT Verbal" />
+								<br/>
+								<input type="radio" name="metrics" value="Male / Female" />
+								<br/>
+								<input type="radio" name="metrics" value="Visited" />
+							</div><!-- Subcontainer to hold just the label Name of the radio button. -->
+							<div class = "label">
+								&nbsp; None &nbsp;
+								<br/>
+								&nbsp; GPA &nbsp;
+								<br/>
+								&nbsp; SAT Math &nbsp;
+								<br/>
+								&nbsp; SAT Verbal &nbsp;
+								<br/>
+								&nbsp; Male/Female &nbsp;
+								<br/>
+								&nbsp; Visited &nbsp;
+							</div>
+							<!-- Subcontainer to hold the drop down menu --><!-- This subcontainer uses break lines to organize
+							the dropdown menus vertically since it is unknown
+							how to stack them vertically.
+							-->
+							<div class = "dropDownMenu">
+								<!-- No drop down menu for Disabling metric filter. -->
+								<br/>
+								<!-- GPA filter. -->
+								<select name="gpaSelector">
+									<option value="4">4.0 - 3.0</option>
+									<option value="3">3.0 - 2.0</option>
+									<option value="2">2.0 - 1.0</option>
+									<option value="1">1.0 - 0.0</option>
+								</select>
+								<br/>
+								<!-- SAT MATH FILTER -->
+								<select name="satMathSelector">
+									<option value="800">800 - 700</option>
+									<option value="700">700 - 600</option>
+									<option value="600">600 - 500</option>
+									<option value="500">500 - 400</option>
+									<option value="400">400 - 300</option>
+									<option value="300">300 - 200</option>
+									<option value="200">200 - 100</option>
+									<option value="100">100 - 000</option>
+								</select>
+								<br/>
+								<!-- SAT Verbal Filter -->
+								<select name="satVerbalSelector">
+									<option value="800">800 - 700</option>
+									<option value="700">700 - 600</option>
+									<option value="600">600 - 500</option>
+									<option value="500">500 - 400</option>
+									<option value="400">400 - 300</option>
+									<option value="300">300 - 200</option>
+									<option value="200">200 - 100</option>
+									<option value="100">100 - 000</option>
+								</select>
+								<br/>
+								<!-- Gender Filter -->
+								<select name="genderSelector">
+									<option value="M">Male</option>
+									<option value="F">Female</option>
+								</select>
+								<br/>
+								<!-- NO drop down menu for visited. -->
+								<br/>
+								<br/>
+							</div>
+						</div>
+					</div>
+					<!-- Container to store the year selection options. -->
+					<div class="sorterContainer">
+						<legend>
+							<b>Years</b>
+						</legend>
+						<input type="radio" name="years" value="2007" checked=true/>
+						2007
+						<br/>
+						<input type="radio" name="years" value="2008"/>
+						2008
+						<br/>
+						<input type="radio" name="years" value="2009"/>
+						2009
+						<br/>
+						<input type="radio" name="years" value="2010"/>
+						2010
+						<br/>
+						<input type="button" name="Submit" value="SUBMIT" onclick="initialize()">
+					</div>
+				</div><!--End "Options" div-->
+			</div><!--End "Container" div-->
+		</form><!--End "thisForm" -->
+		<div id="testWrite"></div>
+	</body>
+</html>

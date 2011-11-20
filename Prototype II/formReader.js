@@ -18,7 +18,7 @@
 	var importantMetric;
 
 /*
- * getValues(<form> formname)
+ * getFormValues(<form> formname)
  * 
  * finds all the elements within a form and gets the value
  * associated with the checked radio button for each
@@ -110,7 +110,7 @@ function getFormValues(form)
 		case "SAT Verbal":
 			importantMetric = selectedVerbal;
 			break;
-		case "Male/ Female":
+		case "Male / Female":
 			importantMetric = selectedGender;
 			break;
 		case "Visited":
@@ -128,8 +128,43 @@ function getFormValues(form)
 	optionSettings['year'] = selectedYear;
 	optionSettings['dropVal'] = importantMetric;
 	
-	//for TESTING - see if values are grabbed correctly
-	document.getElementById("testWrite").innerHTML = "Location: " + selectedLocation + ". Metric: " + selectedMetric + ". Val: " + importantMetric
-	
 	return optionSettings;    
 }//end getValues
+
+
+function getPath(settings) {
+	var year = settings['year'];
+	var group = settings['group'];
+    var state = settings['location'];
+    var metric = settings['metric'];
+    if (metric != "None") {
+    	var metricBin = settings['dropVal'];
+    }
+    var path = "./dataParsing/schoolData/" + year + "/" + state;
+    
+    switch(metric) {
+		case "None":
+			path += "/summary" + year + state + ".csv";
+			break;
+		case "GPA":
+			path += "/gpa" + year + state + metricBin + ".csv";
+			break;
+		case "SAT Math":
+			path += "/satMath" + year + state + metricBin + ".csv";			
+			break;
+		case "SAT Verbal":
+			path += "/satVerbal" + year + state + metricBin + ".csv";
+			break;
+		case "Male / Female":
+			path += "/gender" + year + state + metricBin + ".csv";
+			break;
+		case "Visited":
+			path += "/visited" + year + state + "V.csv";
+			break;
+		default:
+			break;
+	}
+	
+	return path;
+
+}
